@@ -1,6 +1,5 @@
-FROM alpine:3.8
-RUN apk add curl bash ffmpeg && \
-    rm -rf /var/cache/apk/*
+FROM shadyn/rtsp2mjpg:arm64
+RUN apt-get update && apt-get install vlc -y
 COPY stream.sh /usr/bin/stream.sh
 RUN chmod +x /usr/bin/stream.sh
 COPY ffserver.conf /etc/ffserver.conf
